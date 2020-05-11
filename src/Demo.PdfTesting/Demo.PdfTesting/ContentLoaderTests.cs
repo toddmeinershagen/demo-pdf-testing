@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Demo.PdfTesting
 {
     [TestFixture]
-    public class ContentBuilderTests
+    public class ContentLoaderTests
     {
         [Test]
         public async Task given_pdf_when_extracting_then_return_content()
@@ -17,14 +17,25 @@ namespace Demo.PdfTesting
             var endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT", EnvironmentVariableTarget.Machine);
             var path = Path.Combine(Environment.CurrentDirectory, "eap-overview.pdf");
 
-            var content = await ContentBuilder
+            var content = await ContentLoader
                 .UsingEndpoint(endpoint, key)
                 .ExtractFromAsync(path);
 
             content
-                .NumberOfPages.Should().Be(1);
+                .Pages.Count.Should().Be(1);
             content
-                .GetPage(1).Lines.Should().HaveCount(70);
+                .Pages[0].Lines.Should().HaveCount(70);
+
+            var counter = 0;
+            foreach (var page in content.Pages)
+            {
+                await Console.Out.WriteLineAsync($"Page:  {++counter}");
+                foreach (var line in page.Lines)
+                {
+                    counter++;
+                    await Console.Out.WriteLineAsync($"Line:  {counter} - {line.Text}");
+                }
+            }
         }
     }
 }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace James.Testing.Pdf
 {
-    public class ContentBuilder
+    public class ContentLoader
     {
-        private ThreadLocal<string> _endpoint = new ThreadLocal<string>();
-        private ThreadLocal<string> _key = new ThreadLocal<string>();
+        private readonly ThreadLocal<string> _endpoint = new ThreadLocal<string>();
+        private readonly ThreadLocal<string> _key = new ThreadLocal<string>();
         
-        private ContentBuilder(string endpoint, string key)
+        private ContentLoader(string endpoint, string key)
         {
             _endpoint.Value = endpoint;
             _key.Value = key;
@@ -24,9 +24,9 @@ namespace James.Testing.Pdf
             return client;
         }
 
-        public static ContentBuilder UsingEndpoint(string endpoint, string key)
+        public static ContentLoader UsingEndpoint(string endpoint, string key)
         {
-            return new ContentBuilder(endpoint, key);
+            return new ContentLoader(endpoint, key);
         }
 
         public async Task<IContent> ExtractFromAsync(string path)

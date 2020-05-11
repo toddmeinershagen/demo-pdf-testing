@@ -5,7 +5,6 @@ namespace James.Testing.Pdf
 {
     public interface IContent
     {
-        int NumberOfPages { get; }
-        IPage GetPage(int pageNumber);
+        List<IPage> Pages { get; }
     }
 }

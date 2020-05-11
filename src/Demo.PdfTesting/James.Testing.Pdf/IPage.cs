@@ -5,6 +5,6 @@ namespace James.Testing.Pdf
 {
     public interface IPage
     {
-        IList<Line> Lines { get;  }
+        IList<ILine> Lines { get;  }
     }
 }
