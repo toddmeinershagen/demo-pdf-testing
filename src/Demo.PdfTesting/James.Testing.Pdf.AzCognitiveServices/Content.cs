@@ -1,9 +1,8 @@
 ﻿using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
-using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace James.Testing.Pdf
+namespace James.Testing.Pdf.AzCognitiveService
 {
     public class Content : IContent
     {

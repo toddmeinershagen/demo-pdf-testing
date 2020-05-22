@@ -5,9 +5,9 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace James.Testing.Pdf
+namespace James.Testing.Pdf.AzCognitiveService
 {
-    public class ContentLoader
+    public class ContentLoader : IContentLoader
     {
         private readonly ThreadLocal<string> _endpoint = new ThreadLocal<string>();
         private readonly ThreadLocal<string> _key = new ThreadLocal<string>();

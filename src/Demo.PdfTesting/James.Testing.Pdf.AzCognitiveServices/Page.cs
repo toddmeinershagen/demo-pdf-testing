@@ -1,7 +1,7 @@
 ﻿using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 using System.Collections.Generic;
 
-namespace James.Testing.Pdf
+namespace James.Testing.Pdf.AzCognitiveService
 {
     public class Page : IPage
     {

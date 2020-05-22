@@ -15,6 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\James.Testing.Pdf.AzCognitiveServices\James.Testing.Pdf.AzCognitiveServices.csproj" />
+    <ProjectReference Include="..\James.Testing.Pdf.iText\James.Testing.Pdf.iText.csproj" />
     <ProjectReference Include="..\James.Testing.Pdf\James.Testing.Pdf.csproj" />
   </ItemGroup>
 

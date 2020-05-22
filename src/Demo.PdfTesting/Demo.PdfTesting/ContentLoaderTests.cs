@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using James.Testing.Pdf;
+using James.Testing.Pdf.AzCognitiveService;
 using NUnit.Framework;
 using System;
 using System.IO;
@@ -20,6 +20,8 @@ namespace Demo.PdfTesting
             var content = await ContentLoader
                 .UsingEndpoint(endpoint, key)
                 .ExtractFromAsync(path);
+
+            //var content2 = await new James.Testing.Pdf.iText.ContentLoader().ExtractFromAsync(path);
 
             content
                 .Pages.Count.Should().Be(1);

@@ -1,4 +1,4 @@
-﻿namespace James.Testing.Pdf
+﻿namespace James.Testing.Pdf.AzCognitiveService
 {
     public class Line : ILine
     {
